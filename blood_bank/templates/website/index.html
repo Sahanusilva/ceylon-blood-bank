@@ -1,0 +1,182 @@
+{% extends "base.html" %}
+{% load static %}
+{% block head %}
+    {{ block.super }}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+        <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.0/owl.carousel.min.js"></script>
+{% endblock %}
+
+{% block title %}{{ block.super }}|Home{% endblock %}
+
+{% block content %}
+
+    <section id="slidder">
+
+        <div class="owl-carousel owl-theme">
+            <div class="slidder-img-1 slid d-flex justify-content-center d-md-block">
+                <h1 class="animate__animated animate__fadeInUp animate__faster">blood donation campaign 2020</h1>
+                <p class="animate__animated animate__fadeInUp animate__delay-1s animate__faster">Blood donation never asks to be rich or poor, any healthy person can donate blood. </p>
+
+            </div>
+
+            <div class="slidder-img-2 slide d-flex justify-content-center d-md-block">
+                <h1 class="">blood donation campaign 2020</h1>
+                <p class="">Every good act is
+                    charity. A man's true wealth hereafter is the good that he does in this world to his fellows. </p>
+
+            </div>
+
+            <div class="slidder-img-3 slide d-flex justify-content-center d-md-block">
+                <h1 class="">blood donation campaign 2020</h1>
+                <p class="">Every good act is
+                    charity. A man's true wealth hereafter is the good that he does in this world to his fellows. </p>
+
+            </div>
+
+    </section>
+
+    <section id="options">
+        <div class="container my-5 py-5">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Become a blood donor</h5>
+                            <p class="card-text">Register here if you completely new to blood donation.
+                            </p>
+                            <a href="{% url 'preregister' %}" class="btn btn-secondary">Register</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Already a blood donor?</h5>
+                            <p class="card-text">Lorem ipsum, or lipsum as it is sometimes known, is dummy text use.
+                            </p>
+                            <a href="sign-in.html" class="btn btn-secondary">Login</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Request blood</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content. 
+                            </p>
+                            <a href="{% url 'request-blood' %}" class="btn btn-secondary">Request</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about-us">
+        <div class="container d-flex justify-content-center py-5 my-5">
+            <div class="d-block ">
+                <div class="about-header">
+                    <h2 class="text-center text-uppercase mb-5">who we are</h2>
+                </div>
+                <div class="d-lg-flex">
+                    <div class="col-12 col-lg-6 mb-4 mb-lg-0">
+                        <img class="w-100" src="{% static 'img/about-us.jpg' %}" alt="about us image">
+                    </div>
+                    <div class="col-12 col-lg-6 mb-4 mb-lg-0">
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                            
+                            It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="why-we-need-you-to-give-blood">
+        <div class="container d-flex justify-content-center py-5 my-5">
+            <div class="d-block ">
+                <div class="about-header">
+                    <h2 class="text-center text-uppercase mb-5">why you need to give blood</h2>
+                </div>
+                <div class="d-lg-flex flex-row-reverse">
+                    <div class="col-12 col-lg-6 mb-4 mb-lg-0">
+                        <img class="w-100" src="{% static 'img/about-us.jpg' %}" alt="why you need to give blood-img">
+                    </div>
+                    <div class="col-12 col-lg-6 mb-4 mb-lg-0">
+
+                        <ul>
+                            <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                                has been
+                                the
+                                industry's standard dummy text ever since the 1500s</li>
+                            <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                                has been
+                                the
+                                industry's standard</li>
+                            <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                                has been
+                                the
+                                industry's standard dummy text ever since </li>
+                            <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                                has been
+                                the
+                                industry's</li>
+                            <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                                has</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="our-campaigns">
+        <div class="container d-flex justify-content-center py-5 my-5">
+            <div class="d-block">
+                <div class="campaign-header">
+                    <h2 class="text-center text-uppercase mb-5">our campaigns</h2>
+                </div>
+                <div class="card-deck">
+                    <div class="card shadow">
+                        <img class="card-img-top" src="static/img/blood-donor-2-985869.png" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                                additional content. This content is a little bit longer.</p>
+                        </div>
+                    </div>
+                    <div class="card shadow">
+                        <img class="card-img-top" src="static/img/blood-donor-2-985869.png" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This card has supporting text below as a natural lead-in to additional
+                                content.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card shadow">
+                        <img class="card-img-top" src="static/img/blood-donor-2-985869.png" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                                additional content. This card has even longer content than the first to show that equal
+                                height
+                                action.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+
+{% block bootstrapJs %}
+    {{ block.super }}
+    <script src="{% static 'js/scripts.js' %}"></script>
+{% endblock %}
+

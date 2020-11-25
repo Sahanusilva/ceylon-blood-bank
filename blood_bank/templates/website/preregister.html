@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ block.super }}|Preregister{% endblock %}
+
+{% block content %}
+
+<div class="container my-5  ">
+    <form id="preregister" action="/" method="POST">
+
+        <div class="mb-4">
+            <label class="mr-2">1. Are you 16 – 65 years old?</label>
+            <div class="form-row my-2 pl-2">
+                <div class="form-check form-check-inline pb-2">
+                    <input class="form-check-input" type="radio" name="q1" id="option1" value="yes">
+                    <label class="form-check-label" for="option">Yes</label>
+                </div>
+                <div class="form-check form-check-inline pb-2">
+                    <input class="form-check-input" type="radio" name="q1" id="option2" value="no">
+                    <label class="form-check-label" for="option1">No</label>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="mb-4">
+            <label class="mr-2">2. Do you currently weigh less than 50kg?</label>
+            <div class="form-row my-2 pl-2">
+                <div class="form-check form-check-inline pb-2">
+                    <input class="form-check-input" type="radio" name="q2" id="option3" value="Yes">
+                    <label class="form-check-label" for="option3">Yes</label>
+                </div>
+                <div class="form-check form-check-inline pb-2">
+                    <input class="form-check-input" type="radio" name="q2" id="option4" value="No">
+                    <label class="form-check-label" for="option4">No</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-4">
+            <label class="mr-2"><del>3. Do you currently weigh less than 50kg?</del></label>
+            <div class="form-row my-2 pl-2">
+                <div class="form-check form-check-inline pb-2">
+                    <input class="form-check-input" type="radio" name="" id="" value="Yes" disabled>
+                    <label class="form-check-label" for="">Yes</label>
+                </div>
+                <div class="form-check form-check-inline pb-2">
+                    <input class="form-check-input" type="radio" name="" id="" value="No" disabled>
+                    <label class="form-check-label" for="">No</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-4">
+            <label class="mr-2"><del>4. Do you currently weigh less than 50kg?</del></label>
+            <div class="form-row my-2 pl-2">
+                <div class="form-check form-check-inline pb-2">
+                    <input class="form-check-input" type="radio" name="" id="" value="Yes" disabled>
+                    <label class="form-check-label" for="">Yes</label>
+                </div>
+                <div class="form-check form-check-inline pb-2">
+                    <input class="form-check-input" type="radio" name="" id="" value="No" disabled>
+                    <label class="form-check-label" for="">No</label>
+                </div>
+            </div>
+        </div>
+        <div class="mb-4">
+            <label class="mr-2"><del>5. Do you currently weigh less than 50kg?</del></label>
+            <div class="form-row my-2 pl-2">
+                <div class="form-check form-check-inline pb-2">
+                    <input class="form-check-input" type="radio" name="" id="" value="Yes" disabled>
+                    <label class="form-check-label" for="">Yes</label>
+                </div>
+                <div class="form-check form-check-inline pb-2">
+                    <input class="form-check-input" type="radio" name="" id="" value="No" disabled>
+                    <label class="form-check-label" for="">No</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-4">
+            <label class="mr-2"><del>6. Do you currently weigh less than 50kg?</del></label>
+            <div class="form-row my-2 pl-2">
+                <div class="form-check form-check-inline pb-2">
+                    <input class="form-check-input" type="radio" name="" id="" value="Yes" disabled>
+                    <label class="form-check-label" for="">Yes</label>
+                </div>
+                <div class="form-check form-check-inline pb-2">
+                    <input class="form-check-input" type="radio" name="" id="" value="No" disabled>
+                    <label class="form-check-label" for="">No</label>
+                </div>
+            </div>
+        </div>
+
+        <button id='preRegisterBtn' type="submit" disabled="disabled" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="toRegister" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p class="font-weight-bold">Thanks for answering. You should be eligible to donate so please
+                    continue to register </p>
+                <a href="{% url 'sign-up' %}">
+                    <button type="button" class="btn btn-primary">go to register</button>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="toHome" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <p class="font-weight-bold">Thank you. Based on the answers you provided, we advise that you do not
+                    register to be a blood donor.</p>
+                <a href="{% url 'index' %}">
+                    <button type="button" class="btn btn-primary">back to home page</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block bootstrapJs %}
+    {{ block.super }}
+    <script src="{% static 'js/preregister.js' %}"></script>
+{% endblock %}

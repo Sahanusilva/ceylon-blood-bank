@@ -1,0 +1,212 @@
+nav a.nav-link {
+  font-weight: 700 !important;
+}
+
+section#slidder .owl-carousel.owl-theme h1 {
+  position: absolute;
+  top: 30vh;
+  text-align: center;
+  color: #fff;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-weight: 700;
+  width: 100vw;
+}
+
+section#slidder .owl-carousel.owl-theme p {
+  position: absolute;
+  top: 45vh;
+  color: #fff;
+  font-weight: 600;
+  width: 100vw;
+  text-align: center;
+}
+
+section#slidder .owl-carousel .slidder-img-1 {
+  background-image: linear-gradient(0deg, rgba(0,0,0,0.5) 0%,  rgba(255,255,255,0) 100%),
+  url(../img/blood-donor1.png);
+  height: 86vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+section#slidder .owl-carousel .slidder-img-2 {
+  background-image: url(../img/img-2.jpg);
+  height: 86vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+section#slidder .owl-carousel .slidder-img-3 {
+  background-image: url(../img/img-3.jpg);
+  height: 86vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+section#about-us .container {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+section#about-us .container img {
+  margin-right: 30px;
+}
+
+section#about-us .container p {
+  white-space: pre-line;
+  text-align: justify;
+  line-height: 28px;
+}
+
+section#why-we-need-you-to-give-blood .container {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+section#why-we-need-you-to-give-blood .container img {
+  margin-right: 30px;
+}
+
+section#why-we-need-you-to-give-blood .container p {
+  white-space: pre-line;
+  text-align: justify;
+  line-height: 28px;
+}
+
+section#our-campaigns .container {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#footer {
+  background-color: #dadada;
+}
+
+#footer .container .logo span {
+  font-size: 28px;
+}
+
+#footer .container .social-media-links ul {
+  list-style-type: none;
+}
+
+#footer .container .social-media-links ul li i {
+  color: #000;
+}
+
+#footer .container .quick-links h5 {
+  font-size: 26px;
+}
+
+#footer .container .quick-links ul li {
+  list-style-type: none;
+}
+
+#footer .container .quick-links ul li a {
+  color: #000;
+}
+
+#footer .container .contact-us h5 {
+  font-size: 26px;
+}
+
+#footer .container .contact-us ul li {
+  list-style-type: none;
+}
+
+#footer .container .contact-us ul li a {
+  color: #000;
+}
+
+section#contact .container .contact-options i {
+  font-size: 40px;
+  background-color: #dadada;
+}
+
+section#contact .container .contact-options p {
+  font-weight: 500;
+}
+
+section#contact .container .contact-options p a {
+  color: #000;
+}
+
+section#contact .container .contact-options p a:hover {
+  text-decoration: none;
+}
+
+section#contact-form .contact-form {
+  width: 100%;
+}
+
+section#contact-form .contact-form .d-block {
+  width: 100%;
+}
+
+section#contact-form .contact-form .d-block form .form-group .form-control {
+  width: 100%;
+}
+
+.sign-body {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -ms-flex-align: center;
+  -ms-flex-pack: center;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #f5f5f5;
+}
+
+.sign-body .form-sign {
+  width: 100%;
+  max-width: 420px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.sign-body .form-sign .checkbox {
+  font-weight: 400;
+}
+
+.sign-body .form-sign .form-control {
+  position: relative;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.sign-body .form-sign .form-control:focus {
+  z-index: 2;
+}
+
+.sign-body .form-sign input {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.sign-body .form-sign .form-control[readonly] {
+  background-color: #fff;
+}
+
+.sign-body .form-sign a {
+  color: #000;
+}
+
+.sign-body .form-sign a:hover {
+  text-decoration: none;
+}
+/*# sourceMappingURL=styles.css.map */
