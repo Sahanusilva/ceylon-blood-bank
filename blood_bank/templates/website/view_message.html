@@ -1,0 +1,38 @@
+{% extends "dashboard_base.html" %}
+
+{% load static %}
+
+
+{% block head %}
+{{ block.super }}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+{% endblock %}
+
+{% block title %}{{ block.super }}|Message{% endblock %}
+
+{% bootstrap_messages %}
+
+{% block main %}
+
+<h2>Message</h2>
+
+
+<section id="view-message">
+    <div class="container my-5 py-5">
+    
+        <p class="my-1">{{message.fullname}}</p>
+        <p class="my-1">{{message.phone}}</p>
+        <p class="my-1">{{message.email}}</p>
+        <p class="my-1">{{message.created}}</p>
+        <h5 class="my-3">{{message.subject}}</h5>
+        <p class="my-3">{{message.message}}</p>
+
+        </div>
+</section>
+
+
+{% endblock %}

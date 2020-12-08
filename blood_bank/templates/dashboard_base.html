@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+
+{% block head %}
+{{ block.super }}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{% endblock %}
+
+{% block title %}{{ block.super }}|Dashboard{% endblock %}
+
+{% bootstrap_messages %}
+
+{% block content %}
+
+{% block dashboard %}
+
+<section id="dashboard">
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="{% url 'dashboard' %}">
+                                <i class="fas fa-tachometer-alt"></i>
+                                Dashboard <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'blood_donor' %}">
+                                <i class="fas fa-tint"></i>
+                                Donors
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'message' %}">
+                                <i class="fas fa-envelope"></i>
+                                Messages
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'admin-campaign' %}">
+                                <i class="fas fa-calendar-plus"></i>
+                                Campaigns
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'need_blood' %}">
+                                <i class="fas fa-briefcase-medical"></i>
+                                Need Blood
+                            </a>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </nav>
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+                <div style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"
+                    class="chartjs-size-monitor">
+                    <div class="chartjs-size-monitor-expand"
+                        style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                        <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
+                    </div>
+                    <div class="chartjs-size-monitor-shrink"
+                        style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                        <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
+                    </div>
+                </div>
+                <div class="my-3"></div>
+                {% block main %}
+
+                {% endblock %}
+
+            </main>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
+
+{% endblock %}

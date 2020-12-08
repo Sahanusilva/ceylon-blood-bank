@@ -20,11 +20,11 @@ from django.conf.urls.static import static
 from .router import router
 from website import views
 
+
 urlpatterns = [
-    path('website/', include('website.urls')),
     path('admin/', admin.site.urls),
     path('api/',include(router.urls)),
-
+    path('', include('website.urls')),
     
 ]
 if settings.DEBUG:

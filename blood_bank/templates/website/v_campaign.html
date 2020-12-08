@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ block.super }}|Profile{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5 d-block d-lg-flex view-campaign">
+
+    <div class="col-12 col-lg-9 pr-lg-5 mb-5 mb-lg-0">
+        <img class="w-100" src="{{ campaign.img.url }}">
+        <h4 class="my-4">{{ campaign.event_name }}</h4>
+        <p class="text-muted">Will be held on {{ campaign.datetime|date:"D d M Y" }} {{ campaign.datetime|time:"H:i A" }}</p>
+        <p>At {{ campaign.venue }}</p>
+        <h5 class="my-3">{{ campaign.details }}</h5>
+        <p class="mb-5 py-5">{{ campaign.description }}</p>
+    </div>
+
+    <div class="col-12 col-lg-3">
+        <div class="about mb-4 p-3 ">
+            <h4>About</h4>
+            <p>Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean
+                lacinia bibendum nulla sed consectetur.</p>
+        </div>
+
+        <div class="recent-posts mb-4 p-3 ">
+            <h4>Recent Posts</h4>
+            {% for x in campaign_latest %}
+            <div class="">
+
+
+                <a href="{% url 'campaign_id' x.id %}" class="">
+                    <div class="my-3 d-flex col-12">
+                        <img src="{{ x.img.url }}" alt="" class="sidebar-img img-fluid col-6 p-0">
+                        <h5 class="col-6">{{ x.event_name }}</h5>
+                    </div>
+                </a>
+
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+
+
+</div>
+
+
+{% endblock %}

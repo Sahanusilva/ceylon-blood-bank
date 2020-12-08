@@ -1,0 +1,39 @@
+{% extends "dashboard_base.html" %}
+
+{% load static %}
+
+
+{% block head %}
+{{ block.super }}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+{% endblock %}
+
+{% block title %}{{ block.super }}|Contact{% endblock %}
+
+{% bootstrap_messages %}
+
+{% block main %}
+
+<h2>Edit Campaign</h2>
+
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {% bootstrap_form form layout='inline' %}
+
+    {% buttons %}
+    <a href="{% url 'admin-campaign' %}"><button class="btn btn-secondary">Cancel</button></a>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    {% endbuttons %}
+</form>
+
+{% endblock %}
+
+{% block bootstrapJs %}
+{{ block.super }}
+<script src="{% static 'js/add-campaign.js' %}"></script>
+{% endblock %}

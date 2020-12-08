@@ -2,26 +2,32 @@
 
 {% load static %}
 
-{% block title %}{{ block.super }}|Sign in{% endblock %}    
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{% endblock %}
+
+{% block title %}{{ block.super }}|Sign in{% endblock %}
 
 {% block navbar %}{% endblock %}
+
+{% bootstrap_messages %}
 
 {% block content %}
 
 <div class="text-center sign-body vh-100 align-middle">
-    <form class="form-sign" method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <img class="mb-4" src="{% static 'img/blood-bag.png' %}" alt="" width="72" height="72">
+    <form class="form-sign" method="POST" action="{% url 'sign-in' %}">
+        <img class="mb-4" src="{% static 'img/blood-bank.png' %}" alt="" width="72" height="72">
         <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="text" id="inputEmail" class="form-control mb-3" placeholder="Email address" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control  mb-3" placeholder="Password" required>
-        <div class="checkbox mb-3 text-left">
+        {% csrf_token %}
+        {% bootstrap_form form layout='inline' %}
         
-        </div>
-        <button class="btn btn-lg btn-primary btn-block mb-3" type="submit">Sign in</button>
+        {% buttons %}
+            <button type="submit" class="btn btn-primary">Submit</button>
+        {% endbuttons %}
 
         <label>
             <a href="{% url 'preregister' %}">Don't have an account?</a>
@@ -35,6 +41,5 @@
 {% block footer %}{% endblock %}
 
 {% block bootstrapJs %}
-    {{ block.super }}
-    <script src="{% static 'js/sign-in.js' %}"></script>
+
 {% endblock %}

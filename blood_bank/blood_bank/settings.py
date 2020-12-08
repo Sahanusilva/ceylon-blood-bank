@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '9gqatkks%s9i1=wx(i0u97^^1yu6u#2y=r)qx8e7#_u+zb5xgx'
+SECRET_KEY = '7=_+4e3k9vipeq8fyv34)2utch8c6flew9#e*@#7eh5w)^!*7+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'website',
     'phonenumber_field',
-    'rest_framework'
+    'rest_framework',
+    'bootstrap4'
 ]
 
 MIDDLEWARE = [
@@ -50,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'blood_bank.middleware.LoginRequiredMiddleware'
 ]
 
 ROOT_URLCONF = 'blood_bank.urls'
@@ -79,8 +81,8 @@ WSGI_APPLICATION = 'blood_bank.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'blood_bank',
-        'USER': 'adminuser',
+        'NAME': 'ceylon_blood_bank',
+        'USER': 'django',
         'PASSWORD': 'db@admin@123',
         'HOST': 'localhost',
         'PORT': '3306',
@@ -126,6 +128,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 STATIC_ROOT = '/static/'
 
 STATICFILES_DIRS = [
@@ -135,3 +139,17 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'website/media/')
+
+LOGIN_REDIRECT_URL = '/website/'
+
+LOGIN_URL = '/website/sign-in/'
+
+LOGIN_EXCEMPT_URLS = {
+    r'^website/sign-out/$',
+    r'^website/sign-up/$'
+}
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025

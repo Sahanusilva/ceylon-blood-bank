@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{% endblock %}
+
+{% block title %}{{ block.super }}|Edit Profile{% endblock %}
+
+{% bootstrap_messages %}
+
+{% block content %}
+
+<div class="text-center sign-body vh-100 align-middle">
+    <form class="form-sign" method="POST" >
+        <h1 class="h3 mb-3 font-weight-normal">Edit Profile</h1>
+        {% csrf_token %}
+        {% bootstrap_form form layout='inline' %}
+        
+        {% buttons %}
+            <button type="submit" class="btn btn-primary">Submit</button>
+        {% endbuttons %}
+
+    </form>
+</div>
+
+
+{% endblock %}
+
+
+{% block bootstrapJs %}
+
+{% endblock %}

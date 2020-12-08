@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{% endblock %}
+
+{% block title %}{{ block.super }}|Delete Message{% endblock %}
+
+{% block navbar %}{% endblock %}
+
+{% bootstrap_messages %}
+
+{% block content %}
+
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header d-flex justify-content-end">
+                <a href="{% url 'message' %}">
+                    <button type="button" class="close" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </a>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete message from "{{item}}"?
+            </div>
+            <div class="modal-footer">
+                <form action="{% url 'delete_message' item.id %}" method="post">
+                    {% csrf_token %}
+                <a href="{% url 'message' %}"><button type="button" class="btn btn-secondary">Close</button></a>
+                <input type="submit" class="btn btn-primary" value="Confirm">
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
+
+{% block footer %}{% endblock %}
+
+{% block bootstrapJs %}
+{{ block.super }}
+    <script src="{% static 'js/delete-message.js' %}"></script>
+
+{% endblock %}

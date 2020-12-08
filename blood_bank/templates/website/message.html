@@ -1,0 +1,55 @@
+{% extends "dashboard_base.html" %}
+
+{% load static %}
+
+{% block head %}
+{{ block.super }}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{% endblock %}
+
+{% block title %}{{ block.super }}|Messages{% endblock %}
+
+{% bootstrap_messages %}
+
+{% block main %}
+
+<h2>Messages</h2>
+<div class="table-responsive">
+    <table class="table table-striped table-sm">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Message</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for x in message %}
+            <tr>
+                <td>{{x.id}}</td>
+                <td>{{x.fullname}}</td>
+                <td>{{x.phone}}</td>
+                <td>{{x.email}}</td>
+                <td>{{x.message|truncatewords:5}}</td>
+                <td><a class="mr-3" data-toggle="tooltip" data-placement="right" title="View message"
+                        href="{% url 'message_id' x.id %}">
+                        <i class="far fa-eye"></i>
+                    </a>
+                    <a href="{% url 'delete_message' x.id %}" data-toggle="tooltip" data-placement="right"
+                        title="Delete message">
+                        <i class="far fa-trash-alt text-danger"></i>
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

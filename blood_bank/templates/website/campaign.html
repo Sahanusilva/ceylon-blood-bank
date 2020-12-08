@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ block.super }}|Profile{% endblock %}
+
+{% block content %}
+
+<div class="container my-5 min-vh-100">
+
+    <h2 class="text-center text-uppercase">our campaigns</h2>
+
+    <div class="row mt-5 row-cols-1 row-cols-md-3 ">
+        {% for x in campaign %}
+        <div class="col-12 col-md-6 col-lg-4 mb-4 card-deck campaign-card">
+            <div class="card shadow">
+                <img class="card-img-top" src="{{ x.img.url }}" alt="Card image cap">
+                <div class="card-body">
+                    <a href="{% url 'campaign_id' x.id %}">
+                    <h5 class="card-title">{{ x.event_name }}</h5>
+                </a>
+                    <p class="card-text">{{ x.details }}</p>
+                </div>
+            </div>
+
+        </div>
+        {% endfor %}
+
+
+    </div>
+
+
+</div>
+
+
+{% endblock %}

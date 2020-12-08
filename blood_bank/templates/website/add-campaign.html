@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block head %}
+{{ block.super }}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+{% endblock %}
+
+{% block title %}{{ block.super }}|Add Campaign{% endblock %}
+
+{% bootstrap_messages %}
+
+{% block content %}
+
+<section id="" class="container py-5 text-capitalize text-center">
+        <h2>add campaign</h2>
+
+        <div class="my-5">
+                <form action="{% url 'add_campaign' %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                        {% bootstrap_form campaign_form layout='inline' %}
+
+                        {% buttons %}
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        {% endbuttons %}
+                </form>
+        </div>
+</section>
+
+
+{% endblock %}
+
+{% block bootstrapJs %}
+{{ block.super }}
+<script src="{% static 'js/add-campaign.js' %}"></script>
+{% endblock %}

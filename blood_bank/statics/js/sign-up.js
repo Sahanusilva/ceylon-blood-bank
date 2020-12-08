@@ -1,5 +1,3 @@
-// datepicker
-
-flatpickr("#dob", {
-    maxDate: new Date().fp_incr(0)
-});
+window.onload = () => {
+    document.querySelector('.sr-only').classList.remove('sr-only');
+}

@@ -1,0 +1,81 @@
+{% extends "dashboard_base.html" %}
+
+{% load static %}
+
+{% block head %}
+{{ block.super }}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{% endblock %}
+
+{% block title %}{{ block.super }}|Campaigns{% endblock %}
+
+{% bootstrap_messages %}
+
+{% block main %}
+
+<h2>Campaigns</h2>
+<a href="{% url 'add_campaign' %}" class="text-decoration-none text-dark d-flex justify-content-end mr-4 mb-3"><button class="btn btn-success">Add campaign</button></a>
+<div class="table-responsive">
+    <table class="table table-striped table-sm">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Campaign Name</th>
+                <th>Date</th>
+                <th>Venue</th>
+                <th>Details</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for x in campaign %}
+            <tr>
+                <td>{{x.id}}</td>
+                <td>{{x.event_name}}</td>
+                <td>{{x.datetime}}</td>
+                <td>{{x.venue}}</td>
+                <td>{{x.details|truncatewords:5}}</td>
+                <td><a class="mr-3" data-toggle="tooltip" data-placement="right" title="Edit campaign"
+                        href="{% url 'edit_campaign' x.id %}">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                    <a href="{% url 'delete_campaign' x.id %}" data-toggle="tooltip" data-placement="right"
+                        title="Delete campaign">
+                        <i class="far fa-trash-alt text-danger"></i>
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<!-- <div class="container my-5 min-vh-100">
+    <div class="row mt-5 row-cols-1 row-cols-md-3 ">
+        {% for x in campaign %}
+        <div class="col-12 col-md-6 col-lg-4 mb-4 card-deck campaign-card">
+            <div class="card shadow">
+                <img class="card-img-top" src="{{ x.img.url }}" alt="Card image cap">
+                <div class="card-body">
+                    <a href="{% url 'campaign_id' x.id %}">
+                    <h5 class="card-title">{{ x.event_name }}</h5>
+                </a>
+                    <p class="card-text">{{ x.details }}</p>
+                </div>
+            </div>
+
+        </div>
+        {% endfor %}
+
+
+    </div>
+
+
+</div> -->
+
+
+{% endblock %}

@@ -22,7 +22,6 @@
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
-    
     {% endblock %}
 
     <title>{% block title %}Blood Bank{% endblock %}</title>
@@ -30,9 +29,10 @@
 
 <body>
     {% block navbar %}
+    <div class="header-background bg-danger w-100">
         <header class="container">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="{% url 'index' %}"><img src="{% static 'img/blood-bag.png' %}" width="45" height="45" class="mr-2"><span class="font-weight-bold">Ceylon Blood Bank</span></a>
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <a class="navbar-brand" href="{% url 'index' %}"><img src="{% static 'img/blood-bank.png' %}" width="45" height="45" class="mr-2"><span class="font-weight-bold">Ceylon Blood Bank</span></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                     aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -48,13 +48,28 @@
                         <li class="nav-item mr-4 {% if nbar == 'contact' %}active{% endif %}">  
                             <a class="nav-link" href="{% url 'contact' %}">Contact</a>
                         </li>
-                        <li class="nav-item ">
-                            <a class="nav-link" href="">Login</a>
+                        {% if user.is_authenticated %}
+                        {% if request.user.is_superuser %}
+                        <li class="nav-item mr-4 {% if nbar == 'dashboard' %}active{% endif %}">
+                            <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
                         </li>
+                        {% endif %}
+                        <li class="nav-item mr-4 {% if nbar == 'profile' %}active{% endif %}">
+                            <a class="nav-link" href="{% url 'profile' %}">{{ user }}</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="{% url 'sign-out' %}">Sign out</a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item ">
+                            <a class="nav-link" href="{% url 'sign-in' %}">Login</a>
+                        </li>
+                        {% endif %}
                     </ul>
                 </div>
             </nav>
         </header>
+    </div>
 
     {% endblock %}
         
@@ -64,14 +79,14 @@
 
     {% block footer %}
 
-    <footer id="footer">
+    <footer id="footer" class="bg-danger">
         <div class="container py-5">
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-4 mb-4 mb-sm-0">
                     <div class="logo mb-2">
-                        <span>Blood bank</span>
+                        <span class="text-white">Blood bank</span>
                     </div>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                    <p class="text-white">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
                         has been
                         the
                         industry's</p>
@@ -98,7 +113,7 @@
                 </div>
                 <div class="col-12 col-md-6 col-lg-4 mb-4 mb-sm-0">
                     <div class="contact-us">
-                        <h5 class="mb-3">Contact</h5>
+                        <h5 class="mb-3 text-white">Contact</h5>
                         <ul class="contact p-0">
                             <li>
                                 <a class="d-flex" href="">
@@ -124,11 +139,11 @@
                 </div>
                 <div class="col-12 col-md-6 col-lg-4 mb-4 mb-sm-0">
                     <div class="quick-links">
-                        <h5 class="text-capitalize mb-3">quick links</h5>
+                        <h5 class="text-capitalize mb-3 text-white">quick links</h5>
                         <ul class="p-0">
-                            <li><a href="#">Who we are?</a></li>
-                            <li><a href="#">Contact us</a></li>
-                            <li><a href="#">Our events</a></li>
+                            <li><a href="{% url 'about' %}">Who we are?</a></li>
+                            <li><a href="{% url 'contact' %}">Contact us</a></li>
+                            <li><a href="{% url 'campaign' %}">Our campaigns</a></li>
                         </ul>
                     </div>
 

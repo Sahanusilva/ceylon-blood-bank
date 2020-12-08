@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ block.super }}|Profile{% endblock %}
+
+{% block content %}
+
+<div class="container my-5 min-vh-100">
+    {% if user %}
+    <p><strong>Username:</strong> {{ user }}</p>
+    {% endif %}
+    {% if user.first_name %}
+    <p><strong>First Name:</strong> {{ user.first_name }}</p>
+    {% endif %}
+    {% if user.last_name %}
+    <p><strong>Last Name:</strong> {{ user.last_name }}</p>
+    {% endif %}
+    {% if user.email %}
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    {% endif %}
+    {% if user.blood_donor.gender %}
+    <p><strong>gender:</strong> {{ user.blood_donor.gender }}</p>
+    {% endif %}
+    {% if user.blood_donor.city %}
+    <p><strong>city:</strong> {{ user.blood_donor.city }}</p>
+    {% endif %}
+    {% if user.blood_donor.dob %}
+    <p><strong>dob:</strong> {{ user.blood_donor.dob|date:'Y-m-d' }}</p>
+    {% endif %}
+    {% if user.blood_donor.nic %}
+    <p><strong>nic:</strong> {{ user.blood_donor.nic }}</p>
+    {% endif %}
+
+</div>
+
+
+{% endblock %}

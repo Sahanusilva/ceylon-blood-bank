@@ -3,148 +3,31 @@
 {% load static %}
 
 {% block head %}
-    {{ block.super }}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+{{ block.super }}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 {% endblock %}
 
-{% block title %}{{ block.super }}|Request blood{% endblock %}    
+{% block title %}{{ block.super }}|Request Blood{% endblock %}
+
+{% bootstrap_messages %}
 
 {% block content %}
 
 <div class="text-center sign-body">
-    <form id="signup" method="POST" class="form-sign">
-        <img class="mb-4" src="{% static 'img/blood-bag.png' %}" alt="" width="72" height="72">
+    <form id="signup" method="POST" class="form-sign" action="{% url 'request-blood' %}">
+        <img class="mb-4" src="{% static 'img/blood-bank.png' %}" alt="" width="72" height="72">
         <h1 class="h3 mb-3 font-weight-normal text-capitalize">need blood for save lifes</h1>
 
-        <div class="form-group ">
-            <input type="text" class="form-control" id="fname" placeholder="Patient Name">
-        </div>
+        {% csrf_token %}
 
-        <div class="form-row my-2 pl-2">
-            <label class="mr-2">Gender</label>
-            <div class="form-check form-check-inline pb-2">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                    value="Male">
-                <label class="form-check-label" for="inlineRadio1">Male</label>
-            </div>
-            <div class="form-check form-check-inline pb-2">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                    value="Female">
-                <label class="form-check-label" for="inlineRadio2">Female</label>
-            </div>
-        </div>
+        {% bootstrap_form request_blood layout='inline' %}
 
-        <div class="form-group ">
-            <input type="text" class="form-control" id="fname" placeholder="Hospital Name">
-        </div>
+        <button class="btn btn-lg btn-danger btn-block mb-3 text-capitalize" type="submit">request now</button>
 
-        <div class="form-group ">
-            <input type="text" class="form-control" id="fname" placeholder="Hospital address">
-        </div>
-
-        <div class="form-group">
-            <select type="text" class="form-control" id="" placeholder="City">
-                <option value="" selected disabled hidden>Select city</option>
-                <option value="Akkaraipattu">Akkaraipattu</option>
-                <option value="Ambalangoda">Ambalangoda</option>
-                <option value="Ampara">Ampara</option>
-                <option value="Anuradhapura">Anuradhapura</option>
-                <option value="Avissawella">Avissawella</option>
-                <option value="Badulla">Badulla</option>
-                <option value="Balangoda">Balangoda</option>
-                <option value="Bandarawela">Bandarawela</option>
-                <option value="Battaramulla">Battaramulla</option>
-                <option value="Batticaloa">Batticaloa</option>
-                <option value="Beruwala">Beruwala</option>
-                <option value="Boralesgamuwa">Boralesgamuwa</option>
-                <option value="Chavakachcheri">Chavakachcheri</option>
-                <option value="Chilaw">Chilaw</option>
-                <option value="Colombo">Colombo</option>
-                <option value="Dambulla">Dambulla</option>
-                <option value="Dehiwala">Dehiwala</option>
-                <option value="Embilipitiya">Embilipitiya</option>
-                <option value="Eravur">Eravur</option>
-                <option value="Galle">Galle</option>
-                <option value="Gampaha">Gampaha</option>
-                <option value="Gampola">Gampola</option>
-                <option value="Hambantota">Hambantota</option>
-                <option value="Haputale">Haputale</option>
-                <option value="Hatton-Dickoya">Hatton-Dickoya</option>
-                <option value="Hikkaduwa">Hikkaduwa</option>
-                <option value="Horana">Horana</option>
-                <option value="Ja-Ela">Ja-Ela</option>
-                <option value="Jaffna">Jaffna</option>
-                <option value="Kadugannawa">Kadugannawa</option>
-                <option value="Kaduwela">Kaduwela</option>
-                <option value="Kalmunai">Kalmunai</option>
-                <option value="Kalutara">Kalutara</option>
-                <option value="Kandy">Kandy</option>
-                <option value="Kattankudi">Kattankudi</option>
-                <option value="Katunayake">Katunayake</option>
-                <option value="Kegalle">Kegalle</option>
-                <option value="Kesbewa">Kesbewa</option>
-                <option value="Kilinochchi">Kilinochchi</option>
-                <option value="Kinniya">Kinniya</option>
-                <option value="Kolonnawa">Kolonnawa</option>
-                <option value="Kuliyapitiya">Kuliyapitiya</option>
-                <option value="Kurunegala">Kurunegala</option>
-                <option value="Mabole">Mabole</option>
-                <option value="Maharagama">Maharagama</option>
-                <option value="Mannar">Mannar</option>
-                <option value="Matale">Matale</option>
-                <option value="Matara">Matara</option>
-                <option value="Minuwangoda">Minuwangoda</option>
-                <option value="Moneragala">Moneragala</option>
-                <option value="Moratuwa">Moratuwa</option>
-                <option value="Mount Lavinia">Mount Lavinia</option>
-                <option value="Mullaitivu">Mullaitivu</option>
-                <option value="Nawalapitiya">Nawalapitiya</option>
-                <option value="Negombo">Negombo</option>
-                <option value="Nugegoda">Nugegoda</option>
-                <option value="Nuwara Eliya">Nuwara Eliya</option>
-                <option value="Panadura">Panadura</option>
-                <option value="Peliyagoda">Peliyagoda</option>
-                <option value="Piliyandala">Piliyandala</option>
-                <option value="Point Pedro">Point Pedro</option>
-                <option value="Polonnaruwa">Polonnaruwa</option>
-                <option value="Puttalam">Puttalam</option>
-                <option value="Ratnapura">Ratnapura</option>
-                <option value="Sainthamarathu">Sainthamarathu</option>
-                <option value="Seeduwa">Seeduwa</option>
-                <option value="Seethawakapura">Seethawakapura</option>
-                <option value="Sri Jayawardenepura Kotte">Sri Jayawardenepura Kotte</option>
-                <option value="Tangalle">Tangalle</option>
-                <option value="Thalawakele">Thalawakele</option>
-                <option value="Trincomalee">Trincomalee</option>
-                <option value="Valvettithurai">Valvettithurai</option>
-                <option value="Vavuniya">Vavuniya</option>
-                <option value="Wattala">Wattala</option>
-                <option value="Wattegama">Wattegama</option>
-                <option value="Weligama">Weligama</option>
-            </select>
-        </div>
-
-        <div class="form-group ">
-            <input type="text" class="form-control" id="fname" placeholder="Doctor Name">
-        </div>
-
-        <div class="form-group">
-            <input class="flatpickr flatpickr-input form-control" type="text" placeholder="When required"
-                id="whenRequired" readonly="readonly">
-        </div>
-
-        <div class="form-group">
-            <input type="number" class="form-control" id="" placeholder="Phone">
-        </div>
-
-        <div class="form-group">
-            <textarea type="text-area" class="form-control" id="" placeholder="Reason for blood"></textarea>
-        </div>
-
-        <button class="btn btn-lg btn-primary btn-block mb-3 text-capitalize" type="submit">request now</button>
-
-        <p class="mt-5 mb-3 text-muted">&copy; 2020</p>
     </form>
 </div>
 

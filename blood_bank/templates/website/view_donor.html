@@ -1,0 +1,65 @@
+{% extends "dashboard_base.html" %}
+
+{% load static %}
+
+
+{% block head %}
+{{ block.super }}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+{% endblock %}
+
+{% block title %}{{ block.super }}|Blood Donors{% endblock %}
+
+{% bootstrap_messages %}
+
+{% block main %}
+
+<h2>Blood Donors</h2>
+
+<form>
+    <div class="form-group row">
+        <label for="" class="col-sm-2 col-form-label">Username</label>
+        <div class="col-sm-10">
+            <input type="text" readonly class="form-control-plaintext" id="" value="{{donor.username}}">
+        </div>
+        <label for="" class="col-sm-2 col-form-label">First Name</label>
+        <div class="col-sm-10">
+            <input type="text" readonly class="form-control-plaintext" id="" value="{{donor.first_name}}">
+        </div>
+        <label for="" class="col-sm-2 col-form-label">Last Name</label>
+        <div class="col-sm-10">
+            <input type="text" readonly class="form-control-plaintext" id="" value="{{donor.last_name}}">
+        </div>
+        <label for="" class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-10">
+            <input type="text" readonly class="form-control-plaintext" id="" value="{{donor.email}}">
+        </div>
+        <label for="" class="col-sm-2 col-form-label">Gender</label>
+        <div class="col-sm-10">
+            <input type="text" readonly class="form-control-plaintext" id="" value="{{donor.profile.gender}}">
+        </div>
+        <label for="" class="col-sm-2 col-form-label">City</label>
+        <div class="col-sm-10">
+            <input type="text" readonly class="form-control-plaintext" id="" value="{{donor.profile.city}}">
+        </div>
+        <label for="" class="col-sm-2 col-form-label">Date of Birth</label>
+        <div class="col-sm-10">
+            <input type="text" readonly class="form-control-plaintext" id="" value="{{donor.profile.dob|date:'Y-m-d'}}">
+        </div>
+        <label for="" class="col-sm-2 col-form-label">NIC</label>
+        <div class="col-sm-10">
+            <input type="text" readonly class="form-control-plaintext" id="" value="{{donor.profile.nic}}">
+        </div>
+    </div>
+</form>
+
+{% endblock %}
+
+{% block bootstrapJs %}
+{{ block.super }}
+<script src="{% static 'js/add-campaign.js' %}"></script>
+{% endblock %}

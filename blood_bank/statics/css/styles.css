@@ -1,7 +1,7 @@
 nav a.nav-link {
   font-weight: 700 !important;
 }
-
+  
 section#slidder .owl-carousel.owl-theme h1 {
   position: absolute;
   top: 30vh;
@@ -22,29 +22,32 @@ section#slidder .owl-carousel.owl-theme p {
   text-align: center;
 }
 
-section#slidder .owl-carousel .slidder-img-1 {
-  background-image: linear-gradient(0deg, rgba(0,0,0,0.5) 0%,  rgba(255,255,255,0) 100%),
-  url(../img/blood-donor1.png);
-  height: 86vh;
-  background-size: cover;
-  background-position: center;
-  position: relative;
+section#slidder .owl-carousel.owl-theme button {
+  position: absolute;
+  top: 55vh;
+  left: 50%;
+  margin: auto;
+  text-align: center;
+  /* -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%,0); */
 }
 
-section#slidder .owl-carousel .slidder-img-2 {
-  background-image: url(../img/img-2.jpg);
-  height: 86vh;
+section#slidder .owl-carousel .slidder {
+  background-image: linear-gradient(0deg, rgba(0,0,0,0.5) 0%,  rgba(255,255,255,0) 100%);
+  /* url(../img/blood-donor1.png); */
+  /* height: 86vh;
   background-size: cover;
   background-position: center;
-  position: relative;
+  position: relative; */
 }
 
-section#slidder .owl-carousel .slidder-img-3 {
-  background-image: url(../img/img-3.jpg);
-  height: 86vh;
-  background-size: cover;
-  background-position: center;
+section#slidder .owl-carousel .slidder-img {
   position: relative;
+  z-index: -1;
+}
+
+section#about-us {
+  background-color: #fff1f3;
 }
 
 section#about-us .container {
@@ -85,6 +88,82 @@ section#our-campaigns .container {
           align-items: center;
 }
 
+section#our-campaigns .see-more{
+  
+}
+section#our-campaigns .see-more-link:hover{
+  text-decoration: none;
+}
+
+section#our-campaigns .card a:hover{
+  text-decoration: none;
+}
+
+section#our-campaigns .card h5{
+  color: #000;
+}
+/* section#our-campaigns .campaign-card {
+  margin-bottom: 30px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transition: all 0.5s ease;
+  max-width: 350px;
+
+} */
+
+section#our-campaigns {
+  background-color: #fff1f3;
+}
+
+section#our-campaigns .card:hover {
+  box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important;
+  transition: all 0.8s ease;
+}
+
+.campaign-card .card.shadow:hover{
+  box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important;
+  transition: all 0.8s ease;
+}
+
+.campaign-card .card h5{
+  font-size: 1.1rem!important;
+  color: #000;
+}
+
+.campaign-card .card a:hover{
+  text-decoration: none;
+}
+
+.view-campaign .about  {
+  background-color: #f3f4fc;
+}
+.view-campaign .recent-posts{
+  background-color: #f3f4fc;
+}
+
+.view-campaign .recent-posts img{
+  object-fit: cover;
+  width:120px;
+  height:80px;
+  
+}
+.view-campaign .recent-posts a:hover{
+  text-decoration: none;
+}
+
+.view-campaign .recent-posts h5{
+  color: #000;
+  font-size: 14px;
+}
+
+/* .view-campaign .recent-posts .img-container{
+  position: relative;
+}
+
+.view-campaign .recent-posts .img-container img{
+  position: absolute
+  clip: rect(0, 100px, 200px, 0);
+} */
+
 #footer {
   background-color: #dadada;
 }
@@ -98,7 +177,7 @@ section#our-campaigns .container {
 }
 
 #footer .container .social-media-links ul li i {
-  color: #000;
+  color: #fff;
 }
 
 #footer .container .quick-links h5 {
@@ -110,7 +189,7 @@ section#our-campaigns .container {
 }
 
 #footer .container .quick-links ul li a {
-  color: #000;
+  color: #fff;
 }
 
 #footer .container .contact-us h5 {
@@ -122,12 +201,13 @@ section#our-campaigns .container {
 }
 
 #footer .container .contact-us ul li a {
-  color: #000;
+  color: #fff;
 }
 
 section#contact .container .contact-options i {
   font-size: 40px;
-  background-color: #dadada;
+  background-color: #fff1f3;
+  color: #dc3545;
 }
 
 section#contact .container .contact-options p {
@@ -135,7 +215,7 @@ section#contact .container .contact-options p {
 }
 
 section#contact .container .contact-options p a {
-  color: #000;
+  color: #fff;
 }
 
 section#contact .container .contact-options p a:hover {
@@ -202,6 +282,10 @@ section#contact-form .contact-form .d-block form .form-group .form-control {
   background-color: #fff;
 }
 
+.form-control[readonly] {
+  background-color: #fff!important;
+}
+
 .sign-body .form-sign a {
   color: #000;
 }
@@ -209,4 +293,47 @@ section#contact-form .contact-form .d-block form .form-group .form-control {
 .sign-body .form-sign a:hover {
   text-decoration: none;
 }
-/*# sourceMappingURL=styles.css.map */
+
+.form-check {
+  display: inline-block!important;
+  margin-right: 20px;
+}
+
+.sign-up .form-group:nth-child(6) {
+  display: flex;
+}
+
+#dashboard {
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+}
+
+#dashboard .main {
+  padding-top: 48px;
+}
+
+#dashboard .sidebar {
+  padding-top: 48px;
+}
+
+#dashboard .sidebar .sidebar-sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  height: calc(100vh - 48px);
+  padding-top: 0.5rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#dashboard a {
+  color: #007bff;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+}
